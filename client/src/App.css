@@ -1,0 +1,116 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #e8f5e9; /* Light green background */
+  color: #333;
+  margin: 0;
+}
+
+.app {
+  padding: 20px;
+  text-align: center;
+}
+
+.container {
+  max-width: 600px;
+  width: 100%;
+  background: #ffffff; /* White background for containers */
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin: 20px auto;
+  transition: box-shadow 0.3s;
+}
+
+.container:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  color: #3fff45; /* Green for headings */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #388e3c; /* Darker green for labels */
+}
+
+input {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #c8e6c9; /* Light green border */
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #66bb6a; /* Focused input border color */
+}
+
+button {
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: #4caf50; /* Light green button */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #388e3c; /* Darker green on hover */
+}
+
+.dashboard {
+  background-color: #373835; /* Very light green background for dashboard */
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+}
+
+.user {
+  border-top: 1px solid #c8e6c9; /* Light green border for users */
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.loading {
+  text-align: center;
+  color: #4caf50; /* Loading text color */
+}
+
+.loader {
+  border: 5px solid #f3f3f3; /* Light grey */
+  border-top: 5px solid #4caf50; /* Light green */
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite; /* Spin animation */
+  margin: 30px auto;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error {
+  color: #d32f2f; /* Red color for error messages */
+  font-size: 14px;
+  margin-top: -12px;
+}
+
+.submit-error {
+  color: #d32f2f; /* Red color for error messages */
+  font-size: 14px;
+  margin-top: 15px;
+  margin-bottom: -15px;
+}

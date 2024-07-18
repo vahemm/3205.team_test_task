@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Form and Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e0f7fa; /* Light blue background */
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #4caf50; /* Light green for headings */
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4caf50; /* Light green button */
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #388e3c; /* Darker green on hover */
+        }
+        .dashboard {
+            background-color: #b2ebf2; /* Very light blue background for dashboard */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .post {
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+        .loading {
+            display: none; /* Initially hidden */
+            text-align: center;
+            color: #4caf50; /* Loading text color */
+        }
+        .loader {
+            border: 5px solid #f3f3f3; /* Light grey */
+            border-top: 5px solid #4caf50; /* Light green */
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite; /* Spin animation */
+            margin: 10px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Top Form</h2>
+        <form id="dataForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="number">Number:</label>
+            <input type="number" id="number" name="number" required>
+            <button type="submit">Submit</button>
+            <div id="loadingMessage" class="loading">
+                <div class="loader"></div>
+                Loading...
+            </div>
+        </form>
+    </div>
+
+    <div class="dashboard container">
+        <h2>Dashboard</h2>
+        <div id="posts">
+            <div class="post">
+                <h3>Post 1</h3>
+                <p><strong>Name:</strong> Default Name 1</p>
+                <p><strong>Number:</strong> 11111</p>
+            </div>
+            <div class="post">
+                <h3>Post 2</h3>
+                <p><strong>Name:</strong> Default Name 2</p>
+                <p><strong>Number:</strong> 22222</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let postCount = 2; // Start counting from 2 since we have 2 default posts
+
+        document.getElementById('dataForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const number = document.getElementById('number').value;
+
+            // Show loading message and animation
+            const loadingMessage = document.getElementById('loadingMessage');
+            loadingMessage.style.display = 'block';
+
+            // Simulate a delay of 1 second before adding the post
+            setTimeout(() => {
+                postCount++;
+                const postHTML = `
+                    <div class="post">
+                        <h3>Post ${postCount}</h3>
+                        <p><strong>Name:</strong> ${name}</p>
+                        <p><strong>Number:</strong> ${number}</p>
+                    </div>
+                `;
+                document.getElementById('posts').insertAdjacentHTML('beforeend', postHTML);
+
+                // Hide loading message and reset form fields
+                loadingMessage.style.display = 'none';
+                this.reset();
+            }, 1000); // 1000 milliseconds = 1 second
+        });
+    </script>
+
+</body>
+</html>
