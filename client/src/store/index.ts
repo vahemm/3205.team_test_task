@@ -1,14 +1,14 @@
-import { configureStore } from "@reduxjs/toolkit";
-import userReducer from "./slices/userSlice";
-import saga from "redux-saga";
-import { RootSaga } from "./saga";
+import { configureStore } from '@reduxjs/toolkit';
+import userReducer from './slices/userSlice';
+import saga from 'redux-saga';
+import { RootSaga } from './saga';
 
 const sagaMiddleware = saga();
 export const store = configureStore({
   reducer: {
     users: userReducer,
   },
-  devTools: process.env.NODE_ENV !== "production",
+  devTools: process.env.NODE_ENV !== 'production',
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(sagaMiddleware),
 });

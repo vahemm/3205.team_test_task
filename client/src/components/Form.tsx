@@ -3,9 +3,7 @@ import MaskedInput from 'react-text-mask';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { find } from '../store/slices/userSlice';
 
-interface Props {}
-
-const Form: FunctionComponent<Props> = () => {
+const Form: FunctionComponent = () => {
   const error = useAppSelector((state) => state.users.error);
 
   const [email, setEmail] = useState<string>('');
@@ -43,8 +41,8 @@ const Form: FunctionComponent<Props> = () => {
   };
 
   const handleOnblur = () => {
-    if(email === ''){
-        return
+    if (email === '') {
+      return;
     }
     if (!validateEmail(email)) {
       setEmailError('Invalid email format');
@@ -62,7 +60,7 @@ const Form: FunctionComponent<Props> = () => {
           value={email}
           onChange={handleEmailChange}
           onBlur={handleOnblur}
-          placeholder='example@domain.com'
+          placeholder="example@domain.com"
           required
         />
         {emailError && <p className="error">{emailError}</p>}
